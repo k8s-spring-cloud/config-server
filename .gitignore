@@ -1,5 +1,8 @@
 target/
-!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+mvnw
+mvnw.cmd
+
 
 ### STS ###
 .apt_generated
@@ -9,7 +12,7 @@ target/
 .settings
 .springBeans
 
-### IntelliJ IDEA ###
+### IntelliJ IDEA ###git rm
 .idea
 *.iws
 *.iml
