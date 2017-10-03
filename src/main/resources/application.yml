@@ -1,0 +1,17 @@
+---
+info:
+  component: WB3 K8s | Spring Cloud - Configuration Server
+server:
+  port: 8080
+spring:
+  application:
+    name: wb3-k8s-configserver
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: true
+        git:
+          uri: https://github.com/k8s-spring-cloud/1-Configuration
+          search-paths:
+            - '*' # Search any directory in git repo with '*'; does not limit you to specific directories
