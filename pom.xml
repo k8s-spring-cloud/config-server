@@ -5,7 +5,7 @@
 
 	<groupId>wb3.k8s</groupId>
 	<artifactId>config-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>config-server</name>
@@ -51,6 +51,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>config-server</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
