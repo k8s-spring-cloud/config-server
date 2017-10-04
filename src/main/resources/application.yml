@@ -1,17 +1,17 @@
 ---
 info:
-  component: WB3 K8s | Spring Cloud - Configuration Server
+  component: ${INFO-COMPONENT}
 server:
-  port: 8080
+  port: ${SERVER-PORT}
 spring:
   application:
-    name: wb3-k8s-configserver
+    name: ${SPRING-APPLICATION-NAME}
   cloud:
     config:
       server:
         encrypt:
-          enabled: true
+          enabled: ${SPRING-CLOUD-CONFIG-SERVER-ENCRYPT-ENABLED}
         git:
-          uri: https://github.com/k8s-spring-cloud/1-Configuration
+          uri: ${SPRING-CLOUD-CONFIG-SERVER-GIT-URI}
           search-paths:
             - '*' # Search any directory in git repo with '*'; does not limit you to specific directories
