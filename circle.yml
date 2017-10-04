@@ -6,6 +6,9 @@ machine:
     version: openjdk8
   services:
     - docker
+test:
+  override:
+    - "true"
 deployment:
   hub:
     branch: master
