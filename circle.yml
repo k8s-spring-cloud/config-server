@@ -13,7 +13,7 @@ deployment:
   hub:
     branch: master
     commands:
-      - docker build -t $DOCKER_REPO .
+      - docker build --rm=flase -t $DOCKER_REPO .
 #      - docker tag $DOCKER_REPO:$CIRCLE_BUILD_NUM $DOCKER_REPO:$CIRCLE_BUILD_NUM
       - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASS
       - docker push $DOCKER_REPO
