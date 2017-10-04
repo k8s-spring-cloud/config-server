@@ -1,6 +1,6 @@
 ---
 info:
-  component: ${INFO-COMPONENT}
+  component: WB3 K8s | Spring Cloud - Configuration Server
 server:
   port: ${SERVER-PORT}
 spring:
