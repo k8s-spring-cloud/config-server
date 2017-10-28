@@ -1,2 +1,6 @@
+---
+spring:
+  application:
+    name: wb3-k8s-config-server
 encrypt:
   key: WB3K8sVeryVeryTopSecretKeyToEncryptWith
