@@ -6,6 +6,11 @@ machine:
     version: openjdk8
   services:
     - docker
+  environment:
+    APPLICATION-NAME: WB3-K8s-ConfigServer
+    SPRING-CLOUD-CONFIG-SERVER-ENCRYPT-ENABLED: true
+    SPRING-CLOUD-CONFIG-GIT-URI: https://github.com/k8s-spring-cloud/1-Configuration
+    ENCRYPT-KEY: TheVerySecretKey
 deployment:
   hub:
     branch: master
