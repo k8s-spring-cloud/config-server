@@ -1,20 +1,48 @@
-general:
-  artifacts:
-    - "target/config-server.jar"
-machine:
-  java:
-    version: openjdk8
-  services:
-    - docker
+---
+version: 2
+jobs:
+  build:
+    working_directory: ~/config-server
+    docker:
+      - image: docker pull circleci/openjdk:8-jdk
     environment:
       APPLICATION-NAME: WB3-K8s-ConfigServer
       SPRING-CLOUD-CONFIG-SERVER-ENCRYPT-ENABLED: true
       SPRING-CLOUD-CONFIG-GIT-URI: https://github.com/k8s-spring-cloud/1-Configuration
       ENCRYPT-KEY: TheVerySecretKey
-deployment:
-  hub:
-    branch: master
-    commands:
-      - docker build -t $DOCKER_REPO .
-      - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASS
-      - docker push $DOCKER_REPO
+    steps:
+      - checkout
+      - restore_cache:
+          key: config-server-{{ checksum "pom.xml" }}
+      - run: mvn dependency:go-offline
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: config-server-{{ checksum "pom.xml" }}
+      - run: mvn package
+      - store_test_results:
+          path: target/surefire-reports
+      - store_artifacts:
+          path: target/config-server.jar
+
+#
+#general:
+#  artifacts:
+#    - "target/config-server.jar"
+#machine:
+#  java:
+#    version: openjdk8
+#  services:
+#    - docker
+#    environment:
+#      APPLICATION-NAME: WB3-K8s-ConfigServer
+#      SPRING-CLOUD-CONFIG-SERVER-ENCRYPT-ENABLED: true
+#      SPRING-CLOUD-CONFIG-GIT-URI: https://github.com/k8s-spring-cloud/1-Configuration
+#      ENCRYPT-KEY: TheVerySecretKey
+#deployment:
+#  hub:
+#    branch: master
+#    commands:
+#      - docker build -t $DOCKER_REPO .
+#      - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASS
+#      - docker push $DOCKER_REPO
