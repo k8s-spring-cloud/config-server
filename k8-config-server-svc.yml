@@ -4,14 +4,14 @@ kind: Service
 metadata:
   name: config-server
   labels:
-    component: config-server
+    component: config-server-service
     role: server
 spec:
   selector:
-    component: config-server
-    role: server
+    app: config-server
   ports:
   - name: http
     port: 80
+    targetPort: 8080
     protocol: TCP
   type: LoadBalancer

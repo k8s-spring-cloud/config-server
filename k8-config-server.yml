@@ -4,15 +4,13 @@ kind: Deployment
 metadata:
   name: wb3-k8s-config-server
   labels:
-    component: config-server
-    role: server
+    app: config-server
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        component: config-server
-        role: server
+        app: config-server
     spec:
       containers:
       - name: wb3-k8s-config-server
