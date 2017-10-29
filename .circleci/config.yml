@@ -6,10 +6,10 @@ jobs:
     docker:
       - image: circleci/openjdk:8-jdk
     environment:
-      APPLICATION-NAME: WB3-K8s-ConfigServer
-      SPRING-CLOUD-CONFIG-SERVER-ENCRYPT-ENABLED: true
-      SPRING-CLOUD-CONFIG-GIT-URI: https://github.com/k8s-spring-cloud/1-Configuration
-      ENCRYPT-KEY: TheVerySecretKey
+      APP_NAME: WB3-K8s-ConfigServer
+      CONFIG_SERVER_ENCRYPT_ENABLED: true
+      CONFIG_SERVER_GIT_URI: https://github.com/k8s-spring-cloud/1-Configuration
+      ENCRYPT_KEY: TheVerySecretKey
     steps:
       - checkout
       - restore_cache:

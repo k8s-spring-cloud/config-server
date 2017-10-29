@@ -1,15 +1,18 @@
 ---
 spring:
   application:
-    name: ${APPLICATION-NAME}
+    name: ${APP_NAME}
   cloud:
     config:
       server:
         encrypt:
-          enabled: ${SPRING-CLOUD-CONFIG-SERVER-ENCRYPT-ENABLED}
+          enabled: ${CONFIG_SERVER_ENCRYPT_ENABLED}
         git:
-          uri: ${SPRING-CLOUD-CONFIG-GIT-URI}
+          uri: ${CONFIG_SERVER_GIT_URI}
           search-paths:
             - '*' # Search any directory in git repo with '*'; does not limit you to specific directories
 encrypt:
-  key: ${ENCRYPT-KEY}
+  key: ${ENCRYPT_KEY}
+management:
+  security:
+    enabled: false
