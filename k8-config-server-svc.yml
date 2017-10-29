@@ -1,0 +1,17 @@
+apiVersion: v1
+# Create a service to expose all the confg-server containers to the cluster
+kind: Service
+metadata:
+  name: config-server
+  labels:
+    component: config-server
+    role: server
+spec:
+  selector:
+    component: config-server
+    role: server
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+  type: LoadBalancer

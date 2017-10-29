@@ -1,0 +1,33 @@
+# Create a deployment for the config-server containers
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: wb3-k8s-config-server
+  labels:
+    component: config-server
+    role: server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: config-server
+        role: server
+    spec:
+      containers:
+      - name: wb3-k8s-config-server
+        image: k8springcloud/config-server
+        imagePullPolicy: Always
+        env:
+        - name: "APP_NAME"
+          value: "WB3-K8s-ConfigServer"
+        - name: "CONFIG_SERVER_ENCRYPT_ENABLED"
+          value: "true"
+        - name: "CONFIG_SERVER_GIT_URI"
+          value: "https://github.com/k8s-spring-cloud/1-Configuration"
+        - name: "ENCRYPT_KEY"
+          value: "TheVerySecretKey"
+        ports:
+        - containerPort: 80
+          name: transport
+          protocol: TCP
