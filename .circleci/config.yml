@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/config-server
     docker:
-      - image: docker pull circleci/openjdk:8-jdk
+      - image: circleci/openjdk:8-jdk
     environment:
       APPLICATION-NAME: WB3-K8s-ConfigServer
       SPRING-CLOUD-CONFIG-SERVER-ENCRYPT-ENABLED: true
