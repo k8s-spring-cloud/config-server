@@ -4,8 +4,8 @@ general:
 machine:
   java:
     version: openjdk8
-  services:
-    - docker
+#  services:
+#    - docker
   environment:
     APPLICATION-NAME: WB3-K8s-ConfigServer
     SPRING-CLOUD-CONFIG-SERVER-ENCRYPT-ENABLED: true
