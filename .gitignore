@@ -10,7 +10,7 @@ src/main/resources/application.properties
 # User-specific stuff:
 .idea/**/workspace.xml
 .idea/**/tasks.xml
-.idea/dictionaries
+.idea/dictionariesa
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
