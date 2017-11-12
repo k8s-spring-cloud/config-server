@@ -20,11 +20,11 @@ spec:
 
         # Configure container to work with the service mesh (Linkerd)
         - name: NODE_NAME
-                  valueFrom:
-                    fieldRef:
-                      fieldPath: spec.nodeName
-                - name: http_proxy
-                  value: $(NODE_NAME):4140
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: http_proxy
+          value: $(NODE_NAME):4140
 
         # Application & Spring Cloud configurations
         - name: APP_NAME
@@ -36,7 +36,9 @@ spec:
         - name: ENCRYPT_KEY
           value: "TheVerySecretKey"
         - name: SERVER_PORT
-          value: "0"
+          value: "80"
+        - name: SERVICE_DISCOVERY_TOKEN
+          value: "F11EC33E-00B8-4841-9C6E-11B218C554B2"
         - name: SERVICE_DISCOVERY_ENABLED
           value: "true"
         - name: SERVICE_DISCOVERY_HOST

@@ -14,6 +14,7 @@ spring:
           search-paths:
             - '*' # Search any directory in git repo with '*'; does not limit you to specific directories
     consul:
+      token: ${SERVICE_DISCOVERY_TOKEN}
       enabled: ${SERVICE_DISCOVERY_ENABLED}
       host: ${SERVICE_DISCOVERY_HOST}
       port: ${SERVICE_DISCOVERY_PORT}
