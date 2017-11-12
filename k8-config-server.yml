@@ -17,14 +17,32 @@ spec:
         image: k8springcloud/config-server
         imagePullPolicy: Always
         env:
-        - name: "APP_NAME"
+
+        # Configure container to work with the service mesh (Linkerd)
+        - name: NODE_NAME
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: spec.nodeName
+                - name: http_proxy
+                  value: $(NODE_NAME):4140
+
+        # Application & Spring Cloud configurations
+        - name: APP_NAME
           value: "WB3-K8s-ConfigServer"
-        - name: "CONFIG_SERVER_ENCRYPT_ENABLED"
+        - name: CONFIG_SERVER_ENCRYPT_ENABLED
           value: "true"
-        - name: "CONFIG_SERVER_GIT_URI"
+        - name: CONFIG_SERVER_GIT_URI
           value: "https://github.com/k8s-spring-cloud/1-Configuration"
-        - name: "ENCRYPT_KEY"
+        - name: ENCRYPT_KEY
           value: "TheVerySecretKey"
+        - name: SERVER_PORT
+          value: "0"
+        - name: SERVICE_DISCOVERY_ENABLED
+          value: "true"
+        - name: SERVICE_DISCOVERY_HOST
+          value: "http://service-discovery"
+        - name: SERVICE_DISCOVERY_PORT
+          value: "8500"
         ports:
         - containerPort: 80
           name: transport

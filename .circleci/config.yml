@@ -10,6 +10,7 @@ jobs:
       CONFIG_SERVER_ENCRYPT_ENABLED: true
       CONFIG_SERVER_GIT_URI: https://github.com/k8s-spring-cloud/1-Configuration
       ENCRYPT_KEY: TheVerySecretKey
+      SERVICE_DISCOVERY_ENABLED: false
     steps:
       - checkout
       - restore_cache:

@@ -1,6 +1,6 @@
 ---
 server:
-  port: 80
+  port: ${SERVER_PORT}
 spring:
   application:
     name: ${APP_NAME}
@@ -13,8 +13,21 @@ spring:
           uri: ${CONFIG_SERVER_GIT_URI}
           search-paths:
             - '*' # Search any directory in git repo with '*'; does not limit you to specific directories
+    consul:
+      enabled: ${SERVICE_DISCOVERY_ENABLED}
+      host: ${SERVICE_DISCOVERY_HOST}
+      port: ${SERVICE_DISCOVERY_PORT}
+      discovery:
+        healthCheckInterval: 15s
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 encrypt:
   key: ${ENCRYPT_KEY}
 management:
   security:
     enabled: false
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
