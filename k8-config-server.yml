@@ -24,7 +24,8 @@ spec:
             fieldRef:
               fieldPath: spec.nodeName
         - name: http_proxy
-          value: $(NODE_NAME):4140
+          #value: $(NODE_NAME):4140
+          value: minikube:4140
 
         # Application & Spring Cloud configurations
         - name: APP_NAME
@@ -42,7 +43,7 @@ spec:
         - name: SERVICE_DISCOVERY_ENABLED
           value: "true"
         - name: SERVICE_DISCOVERY_HOST
-          value: "http://service-discovery"
+          value: "service-discovery"
         - name: SERVICE_DISCOVERY_PORT
           value: "8500"
         ports:
