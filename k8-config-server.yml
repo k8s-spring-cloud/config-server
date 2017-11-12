@@ -38,7 +38,7 @@ spec:
         - name: SERVER_PORT
           value: "80"
         - name: SERVICE_DISCOVERY_TOKEN
-          value: "F11EC33E-00B8-4841-9C6E-11B218C554B2"
+          value: "90629549-84fa-bbd7-cdb1-65c37eb48d82"
         - name: SERVICE_DISCOVERY_ENABLED
           value: "true"
         - name: SERVICE_DISCOVERY_HOST
