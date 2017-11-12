@@ -29,7 +29,7 @@ spec:
 
         # Application & Spring Cloud configurations
         - name: APP_NAME
-          value: "WB3-K8s-ConfigServer"
+          value: "config-server"
         - name: CONFIG_SERVER_ENCRYPT_ENABLED
           value: "true"
         - name: CONFIG_SERVER_GIT_URI
